@@ -1,0 +1,26 @@
+import build.src.DefaultConfig
+import build.src.Dep
+
+apply plugin: 'com.android.library'
+
+android {
+    namespace "com.github.gzuliyujiang.calendarpicker"
+    compileSdk DefaultConfig.compileSdkVersion
+    buildToolsVersion DefaultConfig.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion DefaultConfig.minSdkVersion
+        targetSdkVersion DefaultConfig.targetSdkVersion
+    }
+}
+
+
+dependencies {
+    api project(':layer_base:Commons')
+
+    implementation Dep.annotaton
+    implementation Dep.appcompat
+    implementation Dep.recyclerview
+    implementation Dep.material
+    implementation Dep.constraintlayout
+}

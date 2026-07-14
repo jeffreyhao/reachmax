@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_item_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="36dp"
+    android:background="@drawable/bg_transparent_press"
+    >
+    <com.baidu.baselibrary.widget.CheckBox
+        android:id="@+id/search_item_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/color_selector_check_box"
+        android:textSize="13dp"
+        tools:checked="true"
+        />
+    <TextView
+        android:id="@+id/search_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="10dp"
+        android:minHeight="32dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="6dp"
+        android:background="@drawable/bg_transparent_press"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:textColor="@color/color_title_black"
+        android:textSize="12dp"
+        tools:text="Panda-ZT-NovelNook-1054-NovelNook温ZheNovelNook-NovelNook直投PandaNovelNook-ZTNovelNooNovelNookk-NovelNook-1054-温Zhe-直投"
+        tools:background="@color/transparent_press"
+        />
+</FrameLayout>

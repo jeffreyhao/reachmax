@@ -1,0 +1,10 @@
+ext {
+
+    reachmax = [
+            versionCode: 121,
+            versionName: '1.2.1'
+    ]
+
+
+
+}
