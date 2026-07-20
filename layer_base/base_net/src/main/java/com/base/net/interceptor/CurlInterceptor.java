@@ -78,6 +78,10 @@ public class CurlInterceptor implements Interceptor {
                     curlCommand.append(" -d '").append(buffer.readUtf8()).append("&_debug=").append("-1'");
                 }
             }
+
+            // 格式化
+            curlCommand.append(" | jq .");
+
         } catch (Throwable e){
             e.printStackTrace();
         }

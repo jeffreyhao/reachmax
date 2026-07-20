@@ -209,6 +209,15 @@ private fun TaskItem(
                 value = formatTime(task.start_time),
                 bottomPadding = 5.dp, // 对齐原 tv_time_setting marginBottom=5dp
             )
+            InfoRow(
+                label = "所属账号",
+                value = "launch_id：" + task.launch_id.toString()
+                    + "\n" + "campaign：" + idOrDash(task.campaign_id)
+                    + "\n" + "adset：" + idOrDash(task.adset_id)
+                    + "\n" + "ad：" + idOrDash(task.ad_id),
+                valueFontSize = 12.sp,
+            )
+
             if (task.status == TaskStatus.NOT_START) {
                 Spacer(Modifier.height(15.dp))
                 CancelButton(onClick = { onCancelClick(task) })
@@ -222,6 +231,7 @@ private fun InfoRow(
     label: String,
     value: String,
     bottomPadding: androidx.compose.ui.unit.Dp = 15.dp,
+    valueFontSize: androidx.compose.ui.unit.TextUnit = 14.sp,
 ) {
     Row(
         modifier = Modifier
@@ -238,7 +248,7 @@ private fun InfoRow(
         Text(
             text = value,
             color = ValueColor,
-            fontSize = 14.sp,
+            fontSize = valueFontSize,
         )
     }
 }
@@ -349,6 +359,9 @@ private fun EmptyOrErrorState(
         Text(text = text, color = ValueColor, fontSize = 14.sp)
     }
 }
+
+/** 账号 id 为 null/空串时用 "-" 占位。 */
+private fun idOrDash(value: String?): String = if (value.isNullOrEmpty()) "-" else value
 
 /** ISO8601 -> yyyy-MM-dd HH:mm:ss，复刻 TaskListAdapter 的时间格式化。 */
 private fun formatTime(start: String?): String {

@@ -343,26 +343,27 @@ private fun DetailBlock(
             .fillMaxWidth()
             .padding(top = 20.dp, start = 15.dp, end = 15.dp),
     ) {
-        // 第一行：标签 + 名称
-        Row(verticalAlignment = Alignment.CenterVertically) {
+
+        // 第一行：标签 + 名称（名称可换行，完整展示，不打点）
+        Row(verticalAlignment = Alignment.Top) {
             Text(
                 text = label,
                 color = TextDark,
                 fontSize = 13.sp,
                 fontWeight = FontWeight.Bold,
+                modifier = Modifier.width(56.dp)
             )
             Spacer(Modifier.width(14.dp))
             Text(
                 text = name,
                 color = Color.Black,
                 fontSize = 14.sp,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.weight(1f),
             )
         }
         // 第二行：ID + 复制按钮
         Row(verticalAlignment = Alignment.CenterVertically) {
+            Spacer(Modifier.width(70.dp))
             Text(
                 text = id,
                 color = TextGray,
@@ -374,7 +375,7 @@ private fun DetailBlock(
             if (id.isNotEmpty()) {
                 IconButton(
                     onClick = { onCopy(id) },
-                    modifier = Modifier.padding(start = 2.dp),
+                    modifier = Modifier.padding(start = 1.dp),
                 ) {
                     Icon(
                         painter = painterResource(R.drawable.ic_copy),
@@ -384,11 +385,14 @@ private fun DetailBlock(
                 }
             }
         }
-        // 第三行：状态徽章
+        // 第三行：状态徽章（用 Row 缩进 70dp，与上方名称/ID 左对齐）
         val badge = StateBadge.from(stateText)
         if (badge != null) {
             Spacer(Modifier.height(4.dp))
-            StateBadge(badge)
+            Row {
+                Spacer(Modifier.width(70.dp))
+                StateBadge(badge)
+            }
         }
     }
 }
